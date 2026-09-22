@@ -12,3 +12,6 @@ Get-ADGroup -Filter "adminCount -eq 1" | select Name
 Get-ADUser -Filter {adminCount -eq '1' -and DoesNotRequirePreAuth -eq 'True'}
 
 Get-ADUser -Filter "adminCount -eq '1'" -Properties * | where servicePrincipalName -ne $null | select SamAccountName,MemberOf,ServicePrincipalName | fl        поиск административных пользователей по имени субъекта службы (ServicePrincipalName)
+
+
+Поиск description --->    ldapsearch -x -H ldap://10.129.107.44 -b "DC=INLANEFREIGHT,DC=LOCAL" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description
