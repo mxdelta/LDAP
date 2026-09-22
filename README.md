@@ -15,3 +15,6 @@ Get-ADUser -Filter "adminCount -eq '1'" -Properties * | where servicePrincipalNa
 
 
 Поиск description --->    ldapsearch -x -H ldap://10.129.107.44 -b "DC=INLANEFREIGHT,DC=LOCAL" "(&(objectCategory=person)(objectClass=user))" sAMAccountName description
+
+nxc ldap 10.129.42.188 -u james.cross -p 'Academy_Student!' --query "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=128))" ""
+
